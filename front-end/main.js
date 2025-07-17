@@ -2,7 +2,6 @@ import './style.css'
 import buttons from './uiStuff/uiButtons'
 import { io } from 'socket.io-client'
 import { Device } from 'mediasoup-client'
-import getMic2 from './getMic2'
 import createProducerTransport from './mediaSoupFunctions/createProducerTransport'
 import createProducer from './mediaSoupFunctions/createProducer'
 import requestTransportToConsume from './mediaSoupFunctions/requestTransportToConsume'
@@ -14,9 +13,10 @@ let videoProducer = null
 let audioProducer = null //THIS client's producer
 let consumers = {} //key off the audioPid
 
-// const socket = io.connect('https://localhost:3031')
+console.log('this page is loaded')
+// const socket = io.connect('https://192.168.1.161:3031')
 //FOR LOCAL ONLY... no https
-const socket = io.connect('http://localhost:3031')
+// const socket = io.connect('http://localhost:3031')
 socket.on('connect',()=>{
   console.log("Connected")
 })
@@ -76,11 +76,9 @@ const joinRoom = async()=>{
 }
 
 const enableFeed = async()=>{
-  const mic2Id = await getMic2() //this is for me!
   localStream = await navigator.mediaDevices.getUserMedia({
     video: true,
-    // audio: true,
-    audio: {deviceId:{exact:mic2Id}}, //this is for me!
+    audio: true,
   })
   buttons.localMediaLeft.srcObject = localStream
   buttons.enableFeed.disabled = true
