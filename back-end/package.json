@@ -2,6 +2,7 @@
   "dependencies": {
     "express": "^4.21.1",
     "mediasoup": "^3.14.16",
+    "mkcert": "^3.2.0",
     "socket.io": "^4.8.1"
   }
 }

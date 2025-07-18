@@ -1,5 +1,8 @@
 video-conf/front-end/package-lock.json
 video-conf/back-end/package-lock.json
 video-conf/back-end/node_modules
+video-conf/front-end/node_modules
 video-conf/back-end/config/*.key
+video-conf/front-end/config/*.key
 video-conf/back-end/config/*.crt
+video-conf/front-end/config/*.crt
